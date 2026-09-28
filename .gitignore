@@ -1,0 +1,18 @@
+# Build outputs
+bin/
+obj/
+[Bb]uild/
+[Dd]ist/
+
+# .NET / VS tooling
+.vs/
+.vscode/
+*.user
+*.suo
+*.cache
+TestResults/
+packages/
+
+# OS files
+.DS_Store
+Thumbs.db

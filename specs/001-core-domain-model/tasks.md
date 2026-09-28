@@ -29,9 +29,9 @@ Single-project layout per plan.md: `src/HomNayLive.Domain/`, `src/HomNayLive.Per
 
 **Purpose**: Solution and project initialization per plan.md structure
 
-- [ ] T001 Create solution and projects with references: `HomNayLive.sln`; classlibs `src/HomNayLive.Domain/HomNayLive.Domain.csproj` and `src/HomNayLive.Persistence/HomNayLive.Persistence.csproj` (references Domain); xunit projects `tests/HomNayLive.Domain.Tests/HomNayLive.Domain.Tests.csproj` (references Domain) and `tests/HomNayLive.Persistence.Tests/HomNayLive.Persistence.Tests.csproj` (references Persistence); add all to the solution
-- [ ] T002 [P] Add packages per research R-002: `Microsoft.EntityFrameworkCore.SqlServer` and `Microsoft.EntityFrameworkCore.Design` (10.x) to `src/HomNayLive.Persistence/HomNayLive.Persistence.csproj`; `Microsoft.NET.Test.Sdk`, `xunit`, `xunit.runner.visualstudio` to both test csproj files; Domain project stays dependency-free
-- [ ] T003 [P] Add root `.gitignore` covering .NET build artifacts (`bin/`, `obj/`, `*.user`, `.vs/`, `TestResults/`) so build outputs are never committed
+- [X] T001 Create solution and projects with references: `HomNayLive.sln`; classlibs `src/HomNayLive.Domain/HomNayLive.Domain.csproj` and `src/HomNayLive.Persistence/HomNayLive.Persistence.csproj` (references Domain); xunit projects `tests/HomNayLive.Domain.Tests/HomNayLive.Domain.Tests.csproj` (references Domain) and `tests/HomNayLive.Persistence.Tests/HomNayLive.Persistence.Tests.csproj` (references Persistence); add all to the solution
+- [X] T002 [P] Add packages per research R-002: `Microsoft.EntityFrameworkCore.SqlServer` and `Microsoft.EntityFrameworkCore.Design` (10.x) to `src/HomNayLive.Persistence/HomNayLive.Persistence.csproj`; `Microsoft.NET.Test.Sdk`, `xunit`, `xunit.runner.visualstudio` to both test csproj files; Domain project stays dependency-free
+- [X] T003 [P] Add root `.gitignore` covering .NET build artifacts (`bin/`, `obj/`, `*.user`, `.vs/`, `TestResults/`) so build outputs are never committed
 
 ---
 
@@ -41,20 +41,20 @@ Single-project layout per plan.md: `src/HomNayLive.Domain/`, `src/HomNayLive.Per
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 [P] Create enums per data-model.md in `src/HomNayLive.Domain/Enums/`: `WindowType.cs`, `SourceState.cs`, `ArticleLifecycleState.cs`, `ProcessingJobState.cs`, `ProcessingJobAttemptOutcome.cs`
-- [ ] T005 [P] Create entities `Topic` and `TopicAlias` in `src/HomNayLive.Domain/Entities/Topic.cs`, `src/HomNayLive.Domain/Entities/TopicAlias.cs`
-- [ ] T006 [P] Create entities `Article` and `ArticleSourceLink` in `src/HomNayLive.Domain/Entities/Article.cs`, `src/HomNayLive.Domain/Entities/ArticleSourceLink.cs`
-- [ ] T007 [P] Create entity `Source` in `src/HomNayLive.Domain/Entities/Source.cs`
-- [ ] T008 [P] Create entity `TopicTrendObservation` in `src/HomNayLive.Domain/Entities/TopicTrendObservation.cs`
-- [ ] T009 [P] Create entities `AiSummary`, `AiSummarySourceLink`, `TopicArticleLink` in `src/HomNayLive.Domain/Entities/AiSummary.cs`, `src/HomNayLive.Domain/Entities/AiSummarySourceLink.cs`, `src/HomNayLive.Domain/Entities/TopicArticleLink.cs`
-- [ ] T010 [P] Create entities `User`, `ProcessingJob`, `ProcessingJobAttempt` in `src/HomNayLive.Domain/Entities/User.cs`, `src/HomNayLive.Domain/Entities/ProcessingJob.cs`, `src/HomNayLive.Domain/Entities/ProcessingJobAttempt.cs`
-- [ ] T011 [P] Implement `NameNormalizer` (trim → collapse whitespace → NFC → invariant lowercase; diacritics preserved) in `src/HomNayLive.Domain/Normalization/NameNormalizer.cs` per research R-004
-- [ ] T012 [P] Implement `UrlCanonicalizer` + `UrlCanonicalizationOptions` (lowercase scheme/host, punycode, default-port removal, fragment drop, configurable tracking-parameter stripping, query sorting, slash collapsing, trailing-slash rule) in `src/HomNayLive.Domain/Normalization/UrlCanonicalizer.cs`, `src/HomNayLive.Domain/Normalization/UrlCanonicalizationOptions.cs` per research R-005
-- [ ] T013 [P] Implement `ContentHasher` (SHA-256 lowercase hex over NFC/whitespace-normalized, case-preserved text) in `src/HomNayLive.Domain/Normalization/ContentHasher.cs` per research R-006
-- [ ] T014 Create `HomNayLiveDbContext` with DbSets for all twelve record types in `src/HomNayLive.Persistence/HomNayLiveDbContext.cs` (depends on T005–T010)
-- [ ] T015 Implement `UtcAuditInterceptor` (TimeProvider-driven `CreatedAtUtc`/`UpdatedAtUtc`) in `src/HomNayLive.Persistence/Interceptors/UtcAuditInterceptor.cs` per research R-012
-- [ ] T016 Create `HomNayLiveDesignTimeFactory` reading `HOMNAY_DB_CONNECTION` with LocalDB fallback in `src/HomNayLive.Persistence/HomNayLiveDesignTimeFactory.cs` per research R-014 (no secrets committed)
-- [ ] T017 [P] Create SQL Server LocalDB test harness (fresh per-run database fixture + context factory) in `tests/HomNayLive.Persistence.Tests/Infrastructure/SqlServerLocalDbFixture.cs` per research R-013
+- [X] T004 [P] Create enums per data-model.md in `src/HomNayLive.Domain/Enums/`: `WindowType.cs`, `SourceState.cs`, `ArticleLifecycleState.cs`, `ProcessingJobState.cs`, `ProcessingJobAttemptOutcome.cs`
+- [X] T005 [P] Create entities `Topic` and `TopicAlias` in `src/HomNayLive.Domain/Entities/Topic.cs`, `src/HomNayLive.Domain/Entities/TopicAlias.cs`
+- [X] T006 [P] Create entities `Article` and `ArticleSourceLink` in `src/HomNayLive.Domain/Entities/Article.cs`, `src/HomNayLive.Domain/Entities/ArticleSourceLink.cs`
+- [X] T007 [P] Create entity `Source` in `src/HomNayLive.Domain/Entities/Source.cs`
+- [X] T008 [P] Create entity `TopicTrendObservation` in `src/HomNayLive.Domain/Entities/TopicTrendObservation.cs`
+- [X] T009 [P] Create entities `AiSummary`, `AiSummarySourceLink`, `TopicArticleLink` in `src/HomNayLive.Domain/Entities/AiSummary.cs`, `src/HomNayLive.Domain/Entities/AiSummarySourceLink.cs`, `src/HomNayLive.Domain/Entities/TopicArticleLink.cs`
+- [X] T010 [P] Create entities `User`, `ProcessingJob`, `ProcessingJobAttempt` in `src/HomNayLive.Domain/Entities/User.cs`, `src/HomNayLive.Domain/Entities/ProcessingJob.cs`, `src/HomNayLive.Domain/Entities/ProcessingJobAttempt.cs`
+- [X] T011 [P] Implement `NameNormalizer` (trim → collapse whitespace → NFC → invariant lowercase; diacritics preserved) in `src/HomNayLive.Domain/Normalization/NameNormalizer.cs` per research R-004
+- [X] T012 [P] Implement `UrlCanonicalizer` + `UrlCanonicalizationOptions` (lowercase scheme/host, punycode, default-port removal, fragment drop, configurable tracking-parameter stripping, query sorting, slash collapsing, trailing-slash rule) in `src/HomNayLive.Domain/Normalization/UrlCanonicalizer.cs`, `src/HomNayLive.Domain/Normalization/UrlCanonicalizationOptions.cs` per research R-005
+- [X] T013 [P] Implement `ContentHasher` (SHA-256 lowercase hex over NFC/whitespace-normalized, case-preserved text) in `src/HomNayLive.Domain/Normalization/ContentHasher.cs` per research R-006
+- [X] T014 Create `HomNayLiveDbContext` with DbSets for all twelve record types in `src/HomNayLive.Persistence/HomNayLiveDbContext.cs` (depends on T005–T010)
+- [X] T015 Implement `UtcAuditInterceptor` (TimeProvider-driven `CreatedAtUtc`/`UpdatedAtUtc`) in `src/HomNayLive.Persistence/Interceptors/UtcAuditInterceptor.cs` per research R-012
+- [X] T016 Create `HomNayLiveDesignTimeFactory` reading `HOMNAY_DB_CONNECTION` with LocalDB fallback in `src/HomNayLive.Persistence/HomNayLiveDesignTimeFactory.cs` per research R-014 (no secrets committed)
+- [X] T017 [P] Create SQL Server LocalDB test harness (fresh per-run database fixture + context factory) in `tests/HomNayLive.Persistence.Tests/Infrastructure/SqlServerLocalDbFixture.cs` per research R-013
 
 **Checkpoint**: Foundation ready — user story implementation can begin
 
@@ -66,10 +66,10 @@ Single-project layout per plan.md: `src/HomNayLive.Domain/`, `src/HomNayLive.Per
 
 **Independent Test**: Seed one cycle, dispose the context, reopen, and verify every element and attribution resolves (quickstart V1, SC-001).
 
-- [ ] T018 [US1] Create entity configurations with constraints/indexes/rowversion for `Topic`, `TopicAlias`, `TopicTrendObservation` in `src/HomNayLive.Persistence/Configurations/TopicConfiguration.cs`, `TopicAliasConfiguration.cs`, `TopicTrendObservationConfiguration.cs` (BIN2 collations, window-instance unique index, provider/time indexes per data-model.md)
-- [ ] T019 [P] [US1] Create configurations for `Article`, `ArticleSourceLink`, `Source` in `src/HomNayLive.Persistence/Configurations/ArticleConfiguration.cs`, `ArticleSourceLinkConfiguration.cs`, `SourceConfiguration.cs` (unique canonical URL, filtered one-primary-link index, original URL, unique source key)
-- [ ] T020 [P] [US1] Create configurations for `AiSummary` (scope XOR check constraint), `AiSummarySourceLink`, `TopicArticleLink` in `src/HomNayLive.Persistence/Configurations/AiSummaryConfiguration.cs`, `AiSummarySourceLinkConfiguration.cs`, `TopicArticleLinkConfiguration.cs`
-- [ ] T021 [P] [US1] Create configurations for `User`, `ProcessingJob`, `ProcessingJobAttempt` in `src/HomNayLive.Persistence/Configurations/UserConfiguration.cs`, `ProcessingJobConfiguration.cs`, `ProcessingJobAttemptConfiguration.cs` (unique identity reference, jobs by type/state/time index, attempt-number unique per job)
+- [X] T018 [US1] Create entity configurations with constraints/indexes/rowversion for `Topic`, `TopicAlias`, `TopicTrendObservation` in `src/HomNayLive.Persistence/Configurations/TopicConfiguration.cs`, `TopicAliasConfiguration.cs`, `TopicTrendObservationConfiguration.cs` (BIN2 collations, window-instance unique index, provider/time indexes per data-model.md)
+- [X] T019 [P] [US1] Create configurations for `Article`, `ArticleSourceLink`, `Source` in `src/HomNayLive.Persistence/Configurations/ArticleConfiguration.cs`, `ArticleSourceLinkConfiguration.cs`, `SourceConfiguration.cs` (unique canonical URL, filtered one-primary-link index, original URL, unique source key)
+- [X] T020 [P] [US1] Create configurations for `AiSummary` (scope XOR check constraint), `AiSummarySourceLink`, `TopicArticleLink` in `src/HomNayLive.Persistence/Configurations/AiSummaryConfiguration.cs`, `AiSummarySourceLinkConfiguration.cs`, `TopicArticleLinkConfiguration.cs`
+- [X] T021 [P] [US1] Create configurations for `User`, `ProcessingJob`, `ProcessingJobAttempt` in `src/HomNayLive.Persistence/Configurations/UserConfiguration.cs`, `ProcessingJobConfiguration.cs`, `ProcessingJobAttemptConfiguration.cs` (unique identity reference, jobs by type/state/time index, attempt-number unique per job)
 - [ ] T022 [US1] Wire all configurations + the audit interceptor into `HomNayLiveDbContext` and generate the `InitialCoreModel` migration in `src/HomNayLive.Persistence/Migrations/` (depends on T018–T021)
 - [ ] T023 [US1] Create the reusable knowledge-chain seed fixture (one complete cycle incl. a grounding link) in `tests/HomNayLive.Persistence.Tests/Fixtures/KnowledgeChainFixture.cs`
 - [ ] T024 [P] [US1] Integration test: full chain persists and reconstructs after dispose/reopen with attribution intact (SC-001, V1) in `tests/HomNayLive.Persistence.Tests/KnowledgeChainTests.cs`
