@@ -1,5 +1,9 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/HomNayLive.Domain/HomNayLive.Domain.csproj" />
+    <Project Path="src/HomNayLive.Providers/HomNayLive.Providers.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HomNayLive.Providers.Tests/HomNayLive.Providers.Tests.csproj" />
   </Folder>
 </Solution>
