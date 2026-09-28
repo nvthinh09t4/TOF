@@ -12,19 +12,34 @@ public static class HomNayLiveProviderServiceCollectionExtensions
         var options = new HomNayLive.Providers.ProviderRegistrationOptions();
         configure?.Invoke(options);
 
+        services.AddSingleton(options);
+        services.AddSingleton<HomNayLive.Providers.Execution.ProviderExecutionPolicy>();
+
         if (options.EnableTrendProvider)
         {
-            services.AddSingleton<ITrendProvider, HomNayLive.Providers.DeterministicTrendProvider>();
+            services.AddSingleton<HomNayLive.Providers.DeterministicTrendProvider>();
+            services.AddSingleton<ITrendProvider>(sp => new HomNayLive.Providers.Execution.RetryingTrendProvider(
+                sp.GetRequiredService<HomNayLive.Providers.DeterministicTrendProvider>(),
+                options.TrendExecutionOptions,
+                sp.GetRequiredService<HomNayLive.Providers.Execution.ProviderExecutionPolicy>()));
         }
 
         if (options.EnableNewsProvider)
         {
-            services.AddSingleton<INewsProvider, HomNayLive.Providers.DeterministicNewsProvider>();
+            services.AddSingleton<HomNayLive.Providers.DeterministicNewsProvider>();
+            services.AddSingleton<INewsProvider>(sp => new HomNayLive.Providers.Execution.RetryingNewsProvider(
+                sp.GetRequiredService<HomNayLive.Providers.DeterministicNewsProvider>(),
+                options.NewsExecutionOptions,
+                sp.GetRequiredService<HomNayLive.Providers.Execution.ProviderExecutionPolicy>()));
         }
 
         if (options.EnableAiSummaryProvider)
         {
-            services.AddSingleton<IAiSummaryProvider, HomNayLive.Providers.DeterministicAiSummaryProvider>();
+            services.AddSingleton<HomNayLive.Providers.DeterministicAiSummaryProvider>();
+            services.AddSingleton<IAiSummaryProvider>(sp => new HomNayLive.Providers.Execution.RetryingAiSummaryProvider(
+                sp.GetRequiredService<HomNayLive.Providers.DeterministicAiSummaryProvider>(),
+                options.AiExecutionOptions,
+                sp.GetRequiredService<HomNayLive.Providers.Execution.ProviderExecutionPolicy>()));
         }
 
         return services;

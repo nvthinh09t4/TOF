@@ -7,6 +7,10 @@ public sealed class ProviderRegistrationOptions
     public bool EnableTrendProvider { get; set; } = true;
     public bool EnableNewsProvider { get; set; } = true;
     public bool EnableAiSummaryProvider { get; set; } = true;
+
+    public ProviderExecutionOptions TrendExecutionOptions { get; set; } = new(TimeSpan.FromSeconds(5), 3, TimeSpan.FromMilliseconds(200));
+    public ProviderExecutionOptions NewsExecutionOptions { get; set; } = new(TimeSpan.FromSeconds(5), 3, TimeSpan.FromMilliseconds(200));
+    public ProviderExecutionOptions AiExecutionOptions { get; set; } = new(TimeSpan.FromSeconds(5), 3, TimeSpan.FromMilliseconds(200));
 }
 
 public sealed class DeterministicTrendProvider : ITrendProvider
